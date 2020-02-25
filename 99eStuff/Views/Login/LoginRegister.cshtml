@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "LoginRegister";
+}
+@model _99eStuff.Models.UsersLoginViewModel
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <title>LogIn Ragister || 99eStuff</title>
+</head>
+
+<body>
+        <!-- Start Login Register Area -->
+        <div class="htc__login__register bg__white ptb--130" style="background: rgba(0, 0, 0, 0) url(../../Content/img/login/loginBg.jpg) no-repeat scroll center center;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <ul class="login__register__menu nav justify-contend-center" role="tablist">
+                            <li role="presentation" class="login active"><a class="active" href="#login" role="tab" data-toggle="tab">Login</a></li>
+                            <li role="presentation" class="register"><a href="#register" role="tab" data-toggle="tab">Register</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Start Login Register Content -->
+                <div class="row tab-content">
+                    <div class="col-md-6  ml-auto mr-auto">
+                        <div class="htc__login__register__wrap">
+                            <!-- Start Single Content -->
+                            <div id="login" role="tabpanel" class="single__tabs__panel tab-pane active">
+                                @using (Html.BeginForm("Autherize", "Login", FormMethod.Post))
+                                {
+                                <div class="single-contact-form">
+                                    <div class="contact-box">
+                                        @Html.TextBoxFor(model => model.UserName, new { placeholder = "UserName", required = "required", @class = "form-input"} )
+                                    </div>
+                                    <div>
+                                        @Html.ValidationMessageFor(model => model.UserName)
+                                    </div>
+                                    <div class="contact-box">
+                                        @Html.TextBoxFor(model => model.Password, new { type = "password", placeholder = "Password", required = "required", @class = "form-input"})
+                                    </div>
+                                    <div>
+                                        @Html.ValidationMessageFor(model => model.Password)
+                                    </div>
+                                    <div>
+                                        @Html.DisplayFor(model => model.LoginErrorMessage)
+                                    </div>
+                                    <div class="pl-4">
+                                        <div class="contact-btn mt--30 pl-5">
+                                            <button type="submit" class="fv-btn">Login</button>
+                                        </div>
+                                    </div>                                        
+                                </div>                                  
+                                 }
+                            </div>
+                            <!-- End Single Content -->
+                            <!-- Start Single Content -->
+                            <div id="register" role="tabpanel" class="single__tabs__panel tab-pane">
+                                @using (Html.BeginForm("Register", "Login", FormMethod.Post))
+                                { 
+                                    <div class="single-contact-form">
+                                        <div class="contact-box">
+                                            @Html.TextBoxFor(m => m.NameClient, new { placeholder = "Full Name", required = "required", @class = "form-input" })
+                                        </div>
+                                        <div class="contact-box">
+                                            @Html.TextBoxFor(m => m.UserName, new { placeholder = "UserName", required = "required", @class = "form-input" })
+                                        </div>
+                                        <div class="contact-box">
+                                            @Html.TextBoxFor(m => m.Password, new { type = "password", placeholder = "Password", required = "required", @class = "form-input" })
+                                        </div>
+                                        <div class="contact-box">
+                                            @Html.TextBoxFor(m => m.Mail, new { type = "email", placeholder = "Mail", required = "required", @class = "form-input" })
+                                        </div>
+                                        <div class="pl-4">
+                                            <div class="contact-btn mt--30 pl-5">
+                                                <button class="fv-btn" type="submit" name="name">Registre</button>
+                                            </div>
+                                        </div>                                                                                 
+                                    </div>
+                                }
+                                </div>
+                            <!-- End Single Content -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End Login Register Content -->
+            </div>
+        </div>
+</body>
+
+</html>

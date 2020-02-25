@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/img/logo/flavicon.png">
+
+    <!-- Bootstrap Fremwork Main Css -->
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" asp-append-version="true">
+    <!-- All Plugins css -->
+    <link rel="stylesheet" href="~/Content/css/plugins.css" asp-append-version="true">
+    <!-- Theme shortcodes/elements style -->
+    <link rel="stylesheet" href="~/Content/css/shortcode/shortcodes.css" asp-append-version="true">
+    <!-- Theme main style -->
+    <link rel="stylesheet" href="~/Content/style.css" asp-append-version="true">
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="~/Content/css/responsive.css" asp-append-version="true">
+
+    <!-- Modernizr JS -->
+    <script src="~/Content/js/vendor/modernizr-2.8.3.min.js"></script>
+
+</head>
+<body>
+    <!-- Body main wrapper start -->
+    <div class="wrapper fixed__footer">
+        <!-- Start Header Style -->
+        <header id="header" class="htc-header header--3 bg__white">
+            <!-- Start Mainmenu Area -->
+            <div id="sticky-header-with-topbar" class="mainmenu__area sticky__header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2 col-lg-2 col-6">
+                            <div class="logo">
+                                <a href=@Url.Action("Index","Home")>
+                                    <img src="~/Content/img/logo/99estuff.png" alt="logo">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Start MAinmenu Ares -->
+                        <div class="col-md-8 col-lg-8 d-none d-md-block">
+                            <nav class="mainmenu__nav  d-none d-lg-block">
+                                <ul class="main__menu">
+                                    <li>
+                                        <a href=@Url.Action("Index","Home")>Home</a>
+                                    </li>
+                                    <li>
+                                        <a href=@Url.Action("About","Home")>About</a>
+                                    </li>
+                                    <li>
+                                        <a href=@Url.Action("Shop","Home")>Shop</a>
+                                    </li>
+                                    <li>
+                                        <a href=@Url.Action("Contact","Contact")>Contact</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <div class="mobile-menu clearfix d-block d-lg-none">
+                                <nav id="mobile_dropdown">
+                                    <ul>
+                                        <li><a href=@Url.Action("Index","Home")>Home</a></li>
+                                        <li><a href=@Url.Action("About","Home")>About</a></li>
+                                        <li><a href=@Url.Action("Shop","Home")>Shop</a></li>
+                                        <li><a href=@Url.Action("Contact","Contact")>Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- End MAinmenu Ares -->
+                        <div class="col-md-2 col-lg-2 col-6">
+                            <ul class="menu-extra">
+                                @{ 
+                                    if (Session["userID"] == null)
+                                        {
+                                        <li><a href=@Url.Action("LoginRegister","Login")><span class="ti-user"></span></a></li>
+                                        }
+                                    else
+                                        {
+                                        <li><a href=@Url.Action("LoginActive","Login")><span class="ti-user"></span></a></li>
+                                        }
+                                    }
+                                @{
+                                    if (Session["count"] == null)
+                                    {
+                                        <li><a href=@Url.Action("EmptyCart","AddToCart")><span class="ti-shopping-cart"></span></a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href=@Url.Action("Cart","AddToCart")><span class="ti-shopping-cart"></span>@Session["count"]</a></li>
+                                    }
+
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mobile-menu-area"></div>
+                </div>
+            </div>
+            <!-- End Mainmenu Area -->
+        </header>
+        <!-- End Header Style -->
+        <div class="body__overlay"></div>
+        <!-- Start Offset Wrapper -->
+        <div class="offset__wrapper">
+        </div>
+        <!-- Start Footer Area -->
+        @RenderBody()
+        <footer class="htc__foooter__area" style="background: rgba(0, 0, 0, 0) url(../../Content/img/slider/bg.jpg) no-repeat scroll center center;">
+            <div class="container">
+                <div class="row footer__container clearfix">
+                    <!-- Start Single Footer Widget -->
+                    <div class="col-md-6 col-lg-3 col-sm-6">
+                        <div class="ft__widget">
+                            <div class="ft__logo">
+                                <a href=@Url.Action("Index","Home")>
+                                    <img src="~/Content/img/logo/99estuff-botlogo.png" alt="footer logo">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Footer Widget -->
+                    <!-- Start Single Footer Widget -->
+                    <div class="col-md-6 col-lg-3 col-sm-6">
+                        <div class="ft__widget">
+                            <h2 class="ft__title">Contact info</h2>
+                            <div class="newsletter__form">
+                                <div class="input__box">
+                                    <div id="mc_embed_signup">
+                                        <p> +00 111 222 333 44 <br><a href="#">info@99eStuff.com</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Footer Widget -->
+                    <!-- Start Single Footer Widget -->
+                    <div class="col-md-6 col-lg-3 col-sm-6">
+                        <div class="ft__widget contact__us">
+                            <h2 class="ft__title">Find Us</h2>
+                            <div class="footer__inner">
+                                <p> 21, Pacurari, <br> Iasi, Romania, <br></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Footer Widget -->
+                    <!-- Start Single Footer Widget -->
+                    <div class="col-md-6 col-lg-3 col-sm-6">
+                        <div class="ft__widget">
+                            <h2 class="ft__title">Follow Us</h2>
+                            <ul class="social__icon">
+                                <li><a href="https://twitter.com/99eStuff" target="_blank"><i class="zmdi zmdi-twitter"></i></a></li>
+                                <li><a href="https://www.instagram.com/99estuff/" target="_blank"><i class="zmdi zmdi-instagram"></i></a></li>
+                                <li><a href="https://www.facebook.com/99estuff/" target="_blank"><i class="zmdi zmdi-facebook"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Single Footer Widget -->
+                </div>
+                <!-- Start Copyright Area -->
+                <div class="htc__copyright__area">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <div class="copyright__inner">
+                                <div class="copyright">
+                                    <p>
+                                        © 2020 <a href="@Url.Action("Index","Home")" target="_blank">99eStuff</a>
+                                        All Right Reserved.
+                                    </p>
+                                </div>
+                                <ul class="footer__menu">
+                                    <li><a href=@Url.Action("Index","Home")>Home</a></li>
+                                    <li><a href=@Url.Action("About","Home")>About</a></li>
+                                    <li><a href=@Url.Action("Shop","Home")>Shop</a></li>
+                                    <li><a href=@Url.Action("Contact","Contact")>Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Copyright Area -->
+            </div>
+        </footer>
+        <!-- End Footer Area -->
+        <!-- End Offset Wrapper -->
+    </div>
+    <!-- jquery latest version -->
+    <script src="~/Content/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Bootstrap Framework js -->
+    <script src="~/Content/js/popper.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <!-- All js plugins included in this file. -->
+    <script src="~/Content/js/plugins.js"></script>
+    <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="~/Content/js/main.js"></script>
+</body>
+</html>

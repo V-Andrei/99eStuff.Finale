@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+} 
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <title>Cart || 99eStuff</title>
+</head>
+
+<body>
+
+        <!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(../../Content/img/cart/cart.png) no-repeat scroll center center;">
+            <div class="ht__bradcaump__wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="bradcaump__inner text-center">
+                                <h2 class="bradcaump-title">Cart</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
+        <!-- cart-main-area start -->
+        <div class="cart-main-area ptb--120 bg__white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <form action="#">
+                            <div class="table-content table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="product-thumbnail">Image</th>
+                                            <th class="product-name">Product</th>
+                                            <th class="product-price">Price</th>
+                                            <th class="product-quantity">Quantity</th>
+                                            <th class="product-subtotal">Total</th>
+                                            <th class="product-remove">Remove</th>
+                                        </tr>
+                                    </thead>
+                                        <tbody>
+                                            <tr>                                                                                  
+                                                <td class="product-name" colspan="6">The cart is empty</td>                                               
+                                            </tr>
+                                        </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 col-sm-12">
+                                    <div class="buttons-cart">
+                                        <a href="@Url.Action("Shop","Home")">Go Shopping</a>
+                                    </div>
+                                </div>                            
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- cart-main-area end -->
+
+</body>
+
+</html>
